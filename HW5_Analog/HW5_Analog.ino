@@ -33,12 +33,6 @@ void loop() {
 
   Serial.println(analogReading);
 
-  if (analogReading > (inputAverage + TRIGGERTHRESHOLD)) {
-    digitalWrite(led, HIGH);
-  } else if (analogReading < (inputAverage - TRIGGERTHRESHOLD)) {
-    digitalWrite(led, LOW);
-  }
-
   // If the switch changed, due to noise or pressing:
   if (reading != lastButtonState) {
     // reset the debouncing timer
@@ -58,5 +52,5 @@ void loop() {
   }
   
   lastButtonState = reading;
-  delay(50);  // Just to help the serial port keep up
+  delay(250);  // Just to help the serial port keep up
 }
